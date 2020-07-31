@@ -10,8 +10,16 @@ const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
 // set env variable before hosting
-// mongoose.connect('mongodb+srv://ArpitaChikkodi:' + process.env.MONGO_ATLAS_PWD + '@node-api-trial1.lur48.mongodb.net/<dbname>?retryWrites=true&w=majority');
-mongoose.connect('mongodb+srv://ArpitaChikkodi:Arpu@node-api-trial1@node-api-trial1.lur48.mongodb.net/<dbname>?retryWrites=true&w=majority');
+ mongoose.connect('mongodb+srv://ArpitaChikkodi:' +
+  process.env.MONGO_ATLAS_PWD + 
+  '@node-api-trial1.lur48.mongodb.net/<dbname>?retryWrites=true&w=majority',
+  { useNewUrlParser: true }
+// not required in mongoose version>5 
+  //   {
+//      useMongoClient : true
+//   }
+ );
+// mongoose.connect('mongodb+srv://ArpitaChikkodi:<PASSWORD>@node-api-trial1.lur48.mongodb.net/<dbname>?retryWrites=true&w=majority');
 
 
 // before productRoutes basic
